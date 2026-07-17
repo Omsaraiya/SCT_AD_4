@@ -61,23 +61,29 @@ class _ScannerScreenState extends State<ScannerScreen> {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     'Scanned Result:',
                     style: TextStyle(color: Colors.white54, fontSize: 16),
                   ),
                   const SizedBox(height: 10),
-                  SelectableText(
-                    _scanResult,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.blueAccent,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: SelectableText(
+                        _scanResult,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 15),
+
+                  const SizedBox(height: 10),
+
                   if (_isScanned)
                     ElevatedButton.icon(
                       onPressed: () {
